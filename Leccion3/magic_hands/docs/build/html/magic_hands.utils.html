@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>magic_hands.utils package &mdash; documentación de Magic Hands - 1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.min.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="magic_hands package" href="magic_hands.html" /> 
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a class="site-nav-toggle hidden-lg-up"><i class="icon-menu"></i></a>
+            <a class="site-title" href="index.html">
+                Magic Hands
+            </a>
+        </div>
+    </header>
+
+
+<div class="breadcrumbs-outer hidden-xs-down">
+    <div class="container">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="breadcrumbs">
+    
+      <li><a href="index.html">Docs</a></li>
+        
+          <li><a href="modules.html">magic_hands</a></li>
+        
+          <li><a href="magic_hands.html">magic_hands package</a></li>
+        
+      <li>magic_hands.utils package</li>
+    
+    
+      <li class="breadcrumbs-aside">
+        
+            
+            <a href="_sources/magic_hands.utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+</div>
+    </div>
+</div>
+    <div class="main-outer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-3 site-nav">
+                    
+<div role="search">
+    <form class="search" action="search.html" method="get">
+        <div class="icon-input">
+            <input type="text" name="q" placeholder="Search" />
+            <span class="icon-search"></span>
+        </div>
+        <input type="submit" value="Ir a" class="d-hidden" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+                    <div class="site-nav-tree">
+                        
+                            
+                            
+                                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">magic_hands</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="magic_hands.html">magic_hands package</a></li>
+</ul>
+</li>
+</ul>
+
+                            
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div class="document">
+                        
+                            
+  <section id="magic-hands-utils-package">
+<h1>magic_hands.utils package<a class="headerlink" href="#magic-hands-utils-package" title="Enlazar permanentemente con este título">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="module-magic_hands.utils.detectorDeManos">
+<span id="magic-hands-utils-detectordemanos-module"></span><h2>magic_hands.utils.detectorDeManos module<a class="headerlink" href="#module-magic_hands.utils.detectorDeManos" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="magic_hands.utils.detectorDeManos.detectorDeManos">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">magic_hands.utils.detectorDeManos.</span></span><span class="sig-name descname"><span class="pre">detectorDeManos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modo_estatico</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_manos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confianzaDeteccion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confianzaTracking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.detectorDeManos.detectorDeManos" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>detectorDeManos. Es la clase encargada de detecar los gestos de la mano para asignarle una nota musical a cada dedo
+y luego detectar los gestos de la mano para decidir qué notas estamos intentando tocar.</p>
+<p>Esta clase está basada en la librería <a class="reference external" href="https://google.github.io/mediapipe/solutions/hands.html">MediaPipe (Hands)</a> de
+Google. MediaPipe es una solución de tracking de dedos de alta fidelidad que utiliza machine learning (ML) para inferir
+21 marcadores (landmarks) 3D de una mano a partir de solamente un frame.</p>
+<p>De este modelo de mano de 21 puntos, tienen especial relevancia en este proyecto los puntos 4 8, 12, 16 y 20 que
+corresponden a la punta de cada dedo (de pulgar a meñique)</p>
+<p>Para el tratamiento de imagenes (frames) se utiliza la conocida librería <a class="reference external" href="https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html">OpenCV-Python</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 24%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributos</p></th>
+<th class="head"><p>Valor por defecto</p></th>
+<th class="head"><p>Comentarios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>modo_estatico</p></td>
+<td><p>False</p></td>
+<td><p>False = tratamos los frames de entrada como streams de video</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_manos</p></td>
+<td><p>2</p></td>
+<td><p>Indica el numero de manos que se intentará detectar en cada frame</p></td>
+</tr>
+<tr class="row-even"><td><p>confianzaDeteccion</p></td>
+<td><p>0.5</p></td>
+<td><p>Umbral de confianza de detección de las manos.
+Si el valor de deteccion es superior al definido en
+confianzaDeteccion, entonces nos evitamos seguir detectando la
+mano y solo hacemos tracking, para disminuir la carga de procesado</p></td>
+</tr>
+<tr class="row-odd"><td><p>confianzaTracking</p></td>
+<td><p>0.5</p></td>
+<td><p>Umbral de confianza del seguimiento de los dedos</p></td>
+</tr>
+<tr class="row-even"><td><p>mpHands</p></td>
+<td><p>mp.solutions.hands</p></td>
+<td><p>Modelo de mano</p></td>
+</tr>
+<tr class="row-odd"><td><p>mpDraw</p></td>
+<td><p>mp.solutions.drawing_utils</p></td>
+<td><p>Permite dibujar marcadores y otros elementos del modelo de manos</p></td>
+</tr>
+<tr class="row-even"><td><p>hands</p></td>
+<td><p>mpHands.Hands()</p></td>
+<td><p>Detector de manos</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 22%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Métodos</p></th>
+<th class="head"><p>Parámetros</p></th>
+<th class="head"><p>Comentario</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>detectarManos</p></td>
+<td><p>img
+draw</p></td>
+<td><p>Intenta detectar las manos en una escena a partir de un frame (img).
+Si draw==True, el método devuelve la imagen con los marcadores
+pintados sobre las manos detectadas y unidos por líneas rectas.
+Al ejecutar este método se guardan internamente los marcadores de los
+dedos</p></td>
+</tr>
+<tr class="row-odd"><td><p>detectarPosicion</p></td>
+<td><p>img
+mano</p></td>
+<td><p>Luego de ejecutar detectarManos(), detectarPosicion() devuelve para
+la mano indicada por parámetro, una lista de marcadores con la
+siguiente información: id de marcador, cordenada x, coordenada y.</p></td>
+</tr>
+<tr class="row-even"><td><p>detectarNotas</p></td>
+<td><p>lmList
+mano</p></td>
+<td><p>Mide el módulo (distancia) entre el índice de la mano indicada (mano)
+y los dedos restantes (4 dedos si es la primera mano, 3 si es la
+segunda, ya que trabajamos sólo con  notas musicales) utilizando la
+lista de marcadores que pasamos por parámetro (lmList), para decidir
+qué nota se está tocando (cada dedo excepto el pulgar representa una
+nota mayor)</p></td>
+</tr>
+<tr class="row-odd"><td><p>pintarNotas</p></td>
+<td><p>img
+lmList
+mano
+draw</p></td>
+<td><p>Sirve para mostrar por pantalla al usuario las notas asignadas
+a cada dedo de cada mano</p></td>
+</tr>
+</tbody>
+</table>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">detectorDeManos</span> <span class="k">as</span> <span class="nn">ddm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">detector</span> <span class="o">=</span> <span class="n">ddm</span><span class="o">.</span><span class="n">detectorDeManos</span><span class="p">(</span><span class="n">confianzaDeteccion</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>           <span class="c1"># Inicializa detector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">img_result</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">detectarManos</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">draw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>              <span class="c1"># Detectamos manos en la escena</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Primera mano</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lmList1</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">detectarPosicion</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>                      <span class="c1"># Lista de marcadores primera mano</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">notas</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">detectarNotas</span><span class="p">(</span><span class="n">lmList1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>                       <span class="c1"># Evaluamos el gesto de la mano</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">detector</span><span class="o">.</span><span class="n">pintarNotas</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">lmList1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">display_notes_identifiers</span><span class="p">)</span> <span class="c1"># Printamos notas sobre los dedos de la mano 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Segunda mano</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lmList2</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">detectarPosicion</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                      <span class="c1"># Repetimos para la segunda mano si la hubiese</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">notas</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">detectarNotas</span><span class="p">(</span><span class="n">lmList2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">detector</span><span class="o">.</span><span class="n">pintarNotas</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">lmList2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">display_notes_identifiers</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="magic_hands.utils.detectorDeManos.detectorDeManos.detectarManos">
+<span class="sig-name descname"><span class="pre">detectarManos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.detectorDeManos.detectorDeManos.detectarManos" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Detecta las manos en la escena a partir de un frame. Si la opción draw es igual a True devolverá una imagen
+con los marcadores de los dedos dibujados encima de la mano. Esta función guarda internamente los marcadores</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> – Frame de la escena donde detectaremos la mano</p></li>
+<li><p><strong>draw</strong> – Si es True dibuja el modelo de mano sobre la escena</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="magic_hands.utils.detectorDeManos.detectorDeManos.detectarNotas">
+<span class="sig-name descname"><span class="pre">detectarNotas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mano</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.detectorDeManos.detectorDeManos.detectarNotas" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Calcula la distancia entre el pulgar (que funciona como actuador) y algun otro dedo de la mano que tenga una
+nota musical asignada. Si esta distancia es menor de cierto rango confirmamos la detección del gesto de una nota
+determinada.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lmList</strong> – Lista de marcadores devueltos por detectarPosicion()</p></li>
+<li><p><strong>mano</strong> – Mano activa (0 o 1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>Lista de notas detectadas</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="magic_hands.utils.detectorDeManos.detectorDeManos.detectarPosicion">
+<span class="sig-name descname"><span class="pre">detectarPosicion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mano</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.detectorDeManos.detectorDeManos.detectarPosicion" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Devuelve una lista de marcadores con sus respectivos IDs asi como sus coordenadas x e y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> – imagen de la escena que contiene los marcadores, de la cual se extraen las dimensiones</p></li>
+<li><p><strong>mano</strong> – Mano activa (0 o 1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve</dt>
+<dd class="field-even"><p>lmList (listado de landmarks o marcadores para la mano indicada con sus respectivas cordenadas x e y)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="magic_hands.utils.detectorDeManos.detectorDeManos.pintarNotas">
+<span class="sig-name descname"><span class="pre">pintarNotas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mano</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.detectorDeManos.detectorDeManos.pintarNotas" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> – Frame de la escena donde pintaremos las notas</p></li>
+<li><p><strong>lmList</strong> – Lista de marcadores devueltos por detectarPosicion()</p></li>
+<li><p><strong>mano</strong> – Mano activa (0 o 1)</p></li>
+<li><p><strong>draw</strong> – Si es True dibuja las notas sobre cada dedo en la escena</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-magic_hands.utils.reproducirNota">
+<span id="magic-hands-utils-reproducirnota-module"></span><h2>magic_hands.utils.reproducirNota module<a class="headerlink" href="#module-magic_hands.utils.reproducirNota" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="magic_hands.utils.reproducirNota.reproducirNota">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">magic_hands.utils.reproducirNota.</span></span><span class="sig-name descname"><span class="pre">reproducirNota</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mute_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.reproducirNota.reproducirNota" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ReproducirNotas. Es una clase que nos permite reproducir los siete sonidos de la escala musical diatónica (Do, Re,
+Mi, Fa, Sol, La, Si) de una forma sencilla. Esta clase se basa en la librería
+<a class="reference external" href="https://pypi.org/project/musicalbeeps/">musicalbeeps</a> que nos permite crear un reproductor Player() el cual nos
+permite reproducir un sonido indicándole la nota y su duración.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributos</p></th>
+<th class="head"><p>Condición</p></th>
+<th class="head"><p>Valor por defecto</p></th>
+<th class="head"><p>Comentario</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>volume</p></td>
+<td><p>opcional</p></td>
+<td><p>0.3</p></td>
+<td><p>Nivel de sonido del reproductor Player(). Rango 0.0 - 1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>mute_output</p></td>
+<td><p>opcional</p></td>
+<td><p>True</p></td>
+<td><p>Permite silenciar el reproductor para que no imprima por
+consola las notas que vamos reproduciendo.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 23%" />
+<col style="width: 11%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Métodos</p></th>
+<th class="head"><p>Parámetros</p></th>
+<th class="head"><p>Condición</p></th>
+<th class="head"><p>Comentario</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>initPlayer</p></td>
+<td><p>volume</p></td>
+<td><p>opcional</p></td>
+<td><p>Inicializa el reproductor</p></td>
+</tr>
+<tr class="row-odd"><td><p>play</p></td>
+<td><p>lista_notas
+note_duration
+note_delay
+mute_output</p></td>
+<td><p>requerido
+requerido
+requerido
+requerido</p></td>
+<td><p>Reproduce las notas musicales que le pasamos por lista</p></td>
+</tr>
+</tbody>
+</table>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">reproducirNota</span> <span class="k">as</span> <span class="nn">rn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span> <span class="o">=</span> <span class="n">rn</span><span class="o">.</span><span class="n">reproducirNota</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span><span class="o">.</span><span class="n">initPlayer</span><span class="p">(</span><span class="n">player_volume</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">listaNotas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Si&quot;</span><span class="p">,</span> <span class="s2">&quot;La&quot;</span><span class="p">],</span> <span class="n">note_duration</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">note_detections_delay</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">,</span> <span class="n">mute_output</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="magic_hands.utils.reproducirNota.reproducirNota.initPlayer">
+<span class="sig-name descname"><span class="pre">initPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.reproducirNota.reproducirNota.initPlayer" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Metodo para inicializar el reproductor. Al inicializar el reproductor se asigna también su nivel de volumen.</p>
+<p>Inputs:
+* self.volume: volumen del reproductor que se setea al crear un objeto de la clase reproducirNota().
+Valores posibles: de 0 a 1.</p>
+<ul class="simple">
+<li><p>volume (opcional): opcionalmente sobrescribe el valor de self.volume al inicializar el reproductor.</p></li>
+</ul>
+<dl class="simple">
+<dt>Output:</dt><dd><p>Inicializa el reproductor para poder reproducir sonidos</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="magic_hands.utils.reproducirNota.reproducirNota.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lista_notas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">note_duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">note_delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mute_output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magic_hands.utils.reproducirNota.reproducirNota.play" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Metodo para reproducir las notas musicales. Le pasamos una lista de notas y las irá reproduciendo de acuerdo
+a la duración y retraso de detección de la nota siguiente que hayamos elegido.</p>
+<p>Inputs:</p>
+<blockquote>
+<div><p>listaNotas: volumen del reproductor. Valores posibles: de 0 a 1
+note_duration: duración de la nota musical en segundos. Valores recomendados de 0.5 a 1.5
+note_delay: retardo para reproducir la siguiente nota musical.
+mute_output: permite silenciar el reproductor.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Output:</dt><dd><p>Reproduce el sonido de una nota musical</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-magic_hands.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-magic_hands.utils" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+</section>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            LANGUAGE:'es',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+    <div class="footer" role="contentinfo">
+        <div class="container">
+            &#169; Derechos de autor 2022, Sebastián Mosca.
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.
+        </div>
+    </div>  
+
+</body>
+</html>
