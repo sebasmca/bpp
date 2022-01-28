@@ -1,0 +1,20 @@
+import finanzas
+
+
+fin = finanzas.Finanzas()
+fin.process_file('finanzas2020.csv', '\t')
+print("APARTADO 1")
+print("1 - ¿Qué mes se ha gastado más?")
+expenses_peak, month = fin.get_month_with_more_expenses()
+print(f"    Respuesta: El mes de {month}, el gasto fue de {expenses_peak:.2f}.")
+print("2 - ¿Qué mes se ha ahorrado más?")
+max_savings, month, savings = fin.get_month_with_more_savings()
+print(f"    Respuesta: El mes de {month}, el ahorro fue de un {max_savings:.2f}% de lo ingresado ({savings:.2f}).")
+print("3 - ¿Cuál es la media de gastos al año?")
+print(f"    Respuesta: {fin.get_year_expenses_mean():.2f}")
+print("4 - ¿Cuál ha sido el gasto total a lo largo del año?")
+print(f"    Respuesta: El gasto total a lo largo del año fue {fin.get_year_expenses():.2f}")
+print("5 - ¿Cuáles han sido los ingresos totales a lo largo del año?")
+print(f"    Respuesta: Los ingresos totales a lo largo del año fueron {fin.get_year_incomes():.2f}")
+print("6 - Gráfica: Evolución de ingresos a lo largo del año")
+fin.plot_income_by_month()
